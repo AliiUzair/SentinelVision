@@ -18,7 +18,7 @@ The idea behind the project is to eventually connect these directions to a physi
 * Dead zone to reduce unnecessary movement
 * Alternate-frame processing for better performance
 
-## Technologies
+## Technologies Used
 
 * Python
 * OpenCV
@@ -27,7 +27,7 @@ The idea behind the project is to eventually connect these directions to a physi
 * YOLOv8
 * Ultralytics
 
-## How it works
+## How It Works
 
 The basic workflow is:
 
@@ -53,28 +53,22 @@ LEFT / RIGHT / UP / DOWN / CENTER
 
 ## Setup
 
-### 1. Clone the repository
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/AliiUzair/SentinelVision.git
 cd SentinelVision
 ```
 
-### 2. Install the required packages
+### 2. Install the Required Packages
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Add known faces
+### 3. Add Known Faces
 
-Create or use the existing folder:
-
-```text
-known faces
-```
-
-Add the images of the people you want to recognize.
+You just need to put the images of the people you want the program to recognize inside the existing **`known faces`** folder.
 
 For example:
 
@@ -87,7 +81,9 @@ known faces/
 
 The filename is used as the person's name.
 
-### 4. Run the program
+You don't need to create another folder or change anything in the code. Just paste the images inside `known faces` and run the program.
+
+### 4. Run the Program
 
 ```bash
 python main.py
@@ -95,7 +91,7 @@ python main.py
 
 Press **Q** to close the webcam window.
 
-## Face database
+## Face Database
 
 When the program finds a new image in the `known faces` folder, it generates a face embedding and saves it locally in:
 
@@ -103,13 +99,13 @@ When the program finds a new image in the `known faces` folder, it generates a f
 trained_faces.pkl
 ```
 
-This file is ignored by Git and should not be uploaded to GitHub.
+This file is used to store the face embeddings so that the images don't have to be processed every time.
 
-## Direction detection
+`trained_faces.pkl` is ignored by Git and is not uploaded to the repository.
+
+## Direction Detection
 
 The program compares the center of the detected face with the center of the camera frame.
-
-For example:
 
 ```text
         UP
@@ -123,23 +119,22 @@ LEFT ← CENTER → RIGHT
 
 A dead zone is used around the center so that small movements don't constantly change the direction.
 
-## Current status
+## Current Status
 
 SentinelVision is still a work in progress.
 
-The current version focuses mainly on the computer vision side of the project. The next step is to connect the direction output to a physical pan-tilt mechanism so that the camera can automatically follow the target.
+The current version mainly focuses on the computer vision side of the project. The next step is to connect the direction output to a physical pan-tilt mechanism so that the camera can automatically follow the target.
 
-## Future improvements
+## Future Improvements
 
 * Improve tracking when the face is temporarily lost
 * Improve recognition under different lighting conditions
 * Handle multiple people more reliably
 * Improve YOLO tracking integration
 * Add smoother camera movement
-* Test the system with a physical pan-tilt setup
 
 ## Note
 
-This project is mainly for learning and experimentation with computer vision and robotics.
+This project is mainly for learning and experimenting with computer vision and robotics.
 
 Only use face images and recognition systems with the knowledge and permission of the people involved.
